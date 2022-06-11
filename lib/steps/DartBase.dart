@@ -5,6 +5,7 @@ import 'package:ft_md_101_dart/steps/utils/DartAbstractChild.dart';
 import 'package:ft_md_101_dart/steps/utils/DartChild.dart';
 import 'package:ft_md_101_dart/steps/utils/DartConstructor.dart';
 import 'package:ft_md_101_dart/steps/utils/DartEnum.dart';
+import 'package:ft_md_101_dart/steps/utils/DartExceptionExample.dart';
 import 'package:ft_md_101_dart/steps/utils/DartFinal.dart';
 import 'package:ft_md_101_dart/steps/utils/DartInterfaceChild.dart';
 import 'package:ft_md_101_dart/steps/utils/DartInterfaceParent.dart';
@@ -12,8 +13,8 @@ import 'package:ft_md_101_dart/steps/utils/DartMethod.dart';
 import 'package:ft_md_101_dart/steps/utils/DartPackage.dart';
 import 'package:ft_md_101_dart/steps/utils/DartSignature.dart';
 
-class DartBase{
-  void run(){
+class DartBase {
+  void run() {
     print('DartBase: hello world!');
 
     _stepConf();
@@ -32,13 +33,14 @@ class DartBase{
     _stepDartEnum();
     _stepInterface();
     _stepAbstract();
+    _stepException();
   }
 
-  void _stepConf(){
+  void _stepConf() {
     print('_stepConf: This is step 1');
   }
 
-  void _stepDataType(){
+  void _stepDataType() {
     String str = 'st';
     int intVar = 1;
     double doubleVar = 1.1;
@@ -54,22 +56,22 @@ class DartBase{
     db._stepConf();
   }
 
-  void _stepClassInstance(){
+  void _stepClassInstance() {
     ClassInstance ci = ClassInstance();
     ci.run();
   }
 
-  void _stepPackage(){
+  void _stepPackage() {
     DartPackage dp = DartPackage();
     dp.run();
   }
 
-  void _stepMethod(){
+  void _stepMethod() {
     var dm = DartMethod();
     dm.run();
   }
 
-  void _stepSignature(){
+  void _stepSignature() {
     var ds = DartSignature("first var", "second var");
     ds.run();
     ds.setAndRun("first after set", 'second after set');
@@ -79,42 +81,42 @@ class DartBase{
     ds.run();
   }
 
-  void _stepInheritance(){
+  void _stepInheritance() {
     var dc = DartChild();
     dc.run();
   }
 
-  void _stepConditionalOperator(){
+  void _stepConditionalOperator() {
     var random = Random();
     var intVar = random.nextInt(10);
     var maxVar = 5;
 
     print('_stepConditionalOperator: intVar is $intVar');
 
-    if( intVar > maxVar){
+    if (intVar > maxVar) {
       print('_stepConditionalOperator: $intVar > $maxVar');
     }
 
-    if( intVar < maxVar){
+    if (intVar < maxVar) {
       print('_stepConditionalOperator: $intVar < $maxVar');
     }
 
-    if( intVar != maxVar){
+    if (intVar != maxVar) {
       print('_stepConditionalOperator: $intVar != $maxVar');
     }
 
-    if( intVar == maxVar){
+    if (intVar == maxVar) {
       print('_stepConditionalOperator: $intVar == $maxVar');
     }
 
-    if(intVar % 2 == 0){
+    if (intVar % 2 == 0) {
       print('_stepConditionalOperator: $intVar is event');
-    }else{
+    } else {
       print('_stepConditionalOperator: $intVar is odd');
     }
   }
 
-  void _stepArray(){
+  void _stepArray() {
     var array = [];
     array.add(1);
     array.add('String value');
@@ -142,22 +144,20 @@ class DartBase{
     stringArray.add("value");
     stringArray.add("value");
 
-    stringArray.forEach((e) => {
-      print('_stepArray: $e')
-    });
+    stringArray.forEach((e) => {print('_stepArray: $e')});
   }
 
-  void _stepLoop(){
+  void _stepLoop() {
     List<int> intArray = [];
-    for(int i = 0; i< 100; i++){
+    for (int i = 0; i < 100; i++) {
       intArray.add(Random().nextInt(100));
     }
 
     print('_stepLoop: $intArray');
 
     List<int> onlyEven = [];
-    for(int el in intArray){
-      if(el % 2 == 0){
+    for (int el in intArray) {
+      if (el % 2 == 0) {
         onlyEven.add(el);
       }
     }
@@ -165,9 +165,9 @@ class DartBase{
     print('_stepLoop: $onlyEven');
   }
 
-  void _stepSwitch(){
+  void _stepSwitch() {
     var intVal = Random().nextInt(5);
-    switch (intVal){
+    switch (intVal) {
       case 1:
         print('_stepSwitch: 1');
         break;
@@ -179,7 +179,7 @@ class DartBase{
     }
   }
 
-  void _stepConstructor(){
+  void _stepConstructor() {
     DartConstructor dc = DartConstructor(1, 'str');
     dc.run();
 
@@ -187,27 +187,31 @@ class DartBase{
     dc1.run();
   }
 
-  void _stepFinal(){
+  void _stepFinal() {
     DartFinal df = DartFinal();
     df.run();
   }
 
-  void _stepDartEnum(){
+  void _stepDartEnum() {
     var status = DartEnum.NEW;
     print('_stepDartEnum: $status');
   }
 
-  void _stepInterface(){
+  void _stepInterface() {
     DartInterfaceChild dic = DartInterfaceChild();
     dic.printMe();
 
     DartInterfaceParent dip = DartInterfaceParent();
     dip.printMe();
-
   }
 
-  void _stepAbstract(){
+  void _stepAbstract() {
     DartAbstractChild dac = DartAbstractChild();
     dac.printMe();
+  }
+
+  void _stepException(){
+    DartExceptionExample dee = DartExceptionExample();
+    dee.run();
   }
 }
